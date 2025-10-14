@@ -1,4 +1,4 @@
-package com.techcamps.gestao.cursos.entities;
+package entities;
 
 import javax.persistence.*;
 import java.util.List;

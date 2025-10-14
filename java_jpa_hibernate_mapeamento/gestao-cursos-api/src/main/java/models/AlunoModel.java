@@ -1,6 +1,6 @@
-package com.techcamps.gestao.cursos.models;
+package models;
 
-import com.techcamps.gestao.cursos.entities.Aluno;
+import entities.Aluno;
 
 import javax.persistence.EntityManager;
 import java.util.List;
