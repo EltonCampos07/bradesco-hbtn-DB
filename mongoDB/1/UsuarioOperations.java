@@ -1,6 +1,7 @@
-package app;
-
-import com.mongodb.client.*;
+// UsuarioOperations.java
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
+import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
 import org.bson.Document;
@@ -10,9 +11,10 @@ import java.util.List;
 
 public class UsuarioOperations {
     public static void main(String[] args) {
-        // Conecta ao MongoDB (URI padrão localhost:27017)
-        try (MongoClient mongoClient = MongoClients.create()) {
-            MongoDatabase database = mongoClient.getDatabase("test"); // ajuste o nome do DB se necessário
+        try (MongoDBConnection conn = new MongoDBConnection()) {
+            MongoDatabase database = conn.getDatabase();
+            if (database == null) return;
+
             MongoCollection<Document> collection = database.getCollection("usuarios");
 
             // Insere 3 registros usando insertMany
